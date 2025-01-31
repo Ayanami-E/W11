@@ -11,7 +11,7 @@ const SavedPage = ({ savedJokes, deleteJoke }: SavedPageProps) => {
   return (
     <Box sx={{ p: 2, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2 }}>
       {savedJokes.length === 0 ? (
-        <Typography>No saved jokes yet</Typography>
+        <Typography>No saved jokes yet.</Typography>
       ) : (
         savedJokes.map(joke => (
           <Card key={joke.id} sx={{ minWidth: 275, maxWidth: 500, width: '100%' }}>
