@@ -19,8 +19,13 @@ export const useJokes = () => {
     return true;
   };
 
+  const deleteJoke = (id: number) => {
+    setSavedJokes(savedJokes.filter(joke => joke.id !== id));
+  };
+
   return {
     savedJokes,
-    saveJoke
+    saveJoke,
+    deleteJoke
   };
 };
