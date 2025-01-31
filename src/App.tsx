@@ -1,10 +1,11 @@
+// src/App.tsx
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import FrontPage from './components/FrontPage';
 import SavedPage from './pages/SavedPage';
 import { useJokes } from './hooks/useJokes';
 
-function App() {
+const App = () => {
   const { savedJokes, saveJoke } = useJokes();
 
   return (
@@ -18,6 +19,6 @@ function App() {
       </div>
     </Router>
   );
-}
+};
 
 export default App;

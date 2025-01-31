@@ -1,4 +1,4 @@
-// src/pages/FrontPage.tsx
+// src/components/FrontPage.tsx
 import { useState, useEffect } from 'react';
 import { Button, Card, CardContent, Typography, Box } from '@mui/material';
 import { IJoke } from '../hooks/useJokes';
