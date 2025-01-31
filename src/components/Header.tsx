@@ -27,7 +27,7 @@ const Header = () => {
               }
             }}
           >
-            Home
+            home
           </Button>
           <Button
             component={Link}
@@ -40,7 +40,7 @@ const Header = () => {
               }
             }}
           >
-            Saved
+            saved
           </Button>
         </Box>
       </Toolbar>
