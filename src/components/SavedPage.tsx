@@ -1,12 +1,13 @@
 // src/components/SavedPage.tsx
-import { Box, Card, CardContent, Typography } from '@mui/material';
+import { Box, Card, CardContent, Typography, Button } from '@mui/material';
 import { IJoke } from '../hooks/useJokes';
 
 interface SavedPageProps {
   savedJokes: IJoke[];
+  deleteJoke: (id: number) => void;
 }
 
-const SavedPage = ({ savedJokes }: SavedPageProps) => {
+const SavedPage = ({ savedJokes, deleteJoke }: SavedPageProps) => {
   return (
     <Box sx={{ p: 2, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2 }}>
       {savedJokes.length === 0 ? (
@@ -18,9 +19,17 @@ const SavedPage = ({ savedJokes }: SavedPageProps) => {
               <Typography variant="h6" gutterBottom>
                 {joke.setup}
               </Typography>
-              <Typography variant="body1" color="text.secondary">
+              <Typography variant="body1" color="text.secondary" gutterBottom>
                 {joke.punchline}
               </Typography>
+              <Button 
+                variant="outlined" 
+                color="error"
+                onClick={() => deleteJoke(joke.id)}
+                sx={{ mt: 1 }}
+              >
+                Delete
+              </Button>
             </CardContent>
           </Card>
         ))
