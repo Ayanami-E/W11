@@ -6,7 +6,7 @@ import SavedPage from './components/SavedPage';
 import { useJokes } from './hooks/useJokes';
 
 const App = () => {
-  const { savedJokes, saveJoke } = useJokes();
+  const { savedJokes, saveJoke, deleteJoke } = useJokes();
 
   return (
     <Router>
@@ -14,7 +14,7 @@ const App = () => {
         <Header />
         <Routes>
           <Route path="/" element={<FrontPage saveJoke={saveJoke} />} />
-          <Route path="/saved" element={<SavedPage savedJokes={savedJokes} />} />
+          <Route path="/saved" element={<SavedPage savedJokes={savedJokes} deleteJoke={deleteJoke} />} />
         </Routes>
       </div>
     </Router>
