@@ -1,48 +1,26 @@
-import { AppBar, Toolbar, Button, Typography, Box } from '@mui/material';
+// src/components/Header.tsx
+import { AppBar, Toolbar, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
     <AppBar position="static">
       <Toolbar>
-        <Typography 
-          variant="h6" 
-          component="div" 
-          sx={{ 
-            flexGrow: 1,
-            fontWeight: 'bold'
-          }}
+        <Button
+          component={Link}
+          to="/"
+          color="inherit"
+          sx={{ mr: 2 }}
         >
-          Joke Generator
-        </Typography>
-        <Box sx={{ display: 'flex', gap: 2 }}>
-          <Button
-            component={Link}
-            to="/"
-            color="inherit"
-            variant="outlined"
-            sx={{ 
-              '&:hover': {
-                backgroundColor: 'rgba(255, 255, 255, 0.1)'
-              }
-            }}
-          >
-            home
-          </Button>
-          <Button
-            component={Link}
-            to="/saved"
-            color="inherit"
-            variant="outlined"
-            sx={{ 
-              '&:hover': {
-                backgroundColor: 'rgba(255, 255, 255, 0.1)'
-              }
-            }}
-          >
-            saved
-          </Button>
-        </Box>
+          home
+        </Button>
+        <Button
+          component={Link}
+          to="/saved"
+          color="inherit"
+        >
+          saved
+        </Button>
       </Toolbar>
     </AppBar>
   );
