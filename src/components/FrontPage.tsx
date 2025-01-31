@@ -1,4 +1,3 @@
-// src/pages/FrontPage.tsx
 import { useState, useEffect } from 'react';
 import { Button, Card, CardContent, Typography, Box } from '@mui/material';
 
@@ -15,13 +14,12 @@ const FrontPage = () => {
 
   useEffect(() => {
     const controller = new AbortController();
-    const signal = controller.signal;
 
     const fetchJoke = async () => {
       setIsLoading(true);
       try {
         const response = await fetch('https://official-joke-api.appspot.com/random_joke', {
-          signal
+          signal: controller.signal
         });
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -48,7 +46,7 @@ const FrontPage = () => {
     };
   }, []);
 
-  const handleGetNewJoke = async () => {
+  const handleGetJoke = async () => {
     setIsLoading(true);
     try {
       const response = await fetch('https://official-joke-api.appspot.com/random_joke');
@@ -65,10 +63,10 @@ const FrontPage = () => {
     <Box sx={{ p: 2, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2 }}>
       <Button 
         variant="contained" 
-        onClick={handleGetNewJoke}
+        onClick={handleGetJoke}
         disabled={isLoading}
       >
-        Get New Joke
+        Get Joke
       </Button>
 
       {isLoading && (
