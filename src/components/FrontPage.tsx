@@ -1,15 +1,14 @@
+// src/pages/FrontPage.tsx
 import { useState, useEffect } from 'react';
 import { Button, Card, CardContent, Typography, Box } from '@mui/material';
+import { IJoke } from '../hooks/useJokes';
 
-interface Joke {
-  id: number;
-  type: string;
-  setup: string;
-  punchline: string;
+interface FrontPageProps {
+  saveJoke?: (joke: IJoke) => boolean;
 }
 
-const FrontPage = () => {
-  const [joke, setJoke] = useState<Joke | null>(null);
+const FrontPage = ({ saveJoke }: FrontPageProps) => {
+  const [joke, setJoke] = useState<IJoke | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -82,6 +81,15 @@ const FrontPage = () => {
             <Typography variant="body1" color="text.secondary">
               {joke.punchline}
             </Typography>
+            {saveJoke && (
+              <Button 
+                variant="contained" 
+                onClick={() => saveJoke(joke)}
+                sx={{ mt: 2 }}
+              >
+                Save joke
+              </Button>
+            )}
           </CardContent>
         </Card>
       )}
